@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">skip-android-code-test</string>
+    <string name="title_restaurants">Restaurants</string>
+    <string name="time_estimate">%1$s - %2$s mins</string>
+    <string name="sort">Sort</string>
+    <string name="sort_by_time">By time</string>
+    <string name="sort_by_score">By score</string>
+</resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="restaurant"
+            type="ca.skipthedishes.codetest.model.Restaurant" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:padding="16dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/logoDraweeView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:imageResource="@{restaurant.image}"
+            app:actualImageScaleType="centerCrop"
+            app:fadeDuration="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeholderImage="@drawable/ic_placeholder_resto"
+            app:placeholderImageScaleType="centerCrop"
+            app:roundedCornerRadius="8dp"
+            app:roundingBorderColor="@color/black_alpha20"
+            app:roundingBorderWidth="1dp" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical|start"
+            android:maxLines="2"
+            android:paddingTop="0dp"
+            android:text="@{restaurant.name}"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/skipRatingTextView"
+            app:layout_constraintStart_toEndOf="@+id/logoDraweeView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Logan and Grill \n other line" />
+
+        <TextView
+            android:id="@+id/skipRatingTextView"
+            android:layout_width="38dp"
+            android:layout_height="27dp"
+            android:background="@drawable/bg_skip_score"
+            android:gravity="center"
+            android:text="@{Double.toString(restaurant.score)}"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nameTextView"
+            app:layout_constraintTop_toTopOf="@+id/logoDraweeView"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/timeEstimates"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:text="@{@string/time_estimate(restaurant.estimate.min, restaurant.estimate.max)}"
+            android:textColor="@color/grey_50"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/nameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+            tools:text="30 – 60 mins" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
